@@ -7,7 +7,7 @@
     "lint": "eslint . --fix",
     "build": "tsc",
     "dev": "ts-node ./src/index",
-    "test": "yarn jest  --setupFiles dotenv/config"
+    "test": "yarn jest"
   },
   "repository": {
     "type": "git",

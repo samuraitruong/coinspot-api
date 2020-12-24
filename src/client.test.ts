@@ -3,20 +3,33 @@ const client = new CoinSpotClient(process.env.API_TOKEN as string, process.env.A
 
 describe("Client tests", () => {
   
- 
-  it.only("MyBalance test", async () => {
+  it("MyBalance test", async () => {
     const bl = await client.myBalance()
-    expect(bl).toMatchSnapshot();
+    expect(bl).toEqual({ balance: expect.any(Object), status: 'ok'});
   })
 
-  it.only("quoteSell test", async () => {
-    const bl = await client.quoteSell('LUNA', 6959.62845592)
-    expect(bl).toMatchSnapshot();
+  it("quoteSell(BTC) test", async () => {
+    const bl = await client.quoteSell('BTC', 1)
+    expect(bl).toEqual({
+      quote: expect.any(Number),
+      status: 'ok',
+      timeframe: 0
+    })
   })
 
-  it.only("orderHistory test", async () => {
+  it("quoteBuy(BTC) test", async () => {
+    const bl = await client.quoteBuy('BTC', 1)
+    expect(bl).toEqual({
+      quote: expect.any(Number),
+      status: 'ok',
+      timeframe: 0
+    });
+  });
+
+
+  it("orderHistory test", async () => {
     const bl = await client.ordersHistory('RDD')
-    expect(bl).toMatchSnapshot();
+    expect(bl).toEqual({orders: [], status: 'ok'});
   })
 
 
