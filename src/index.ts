@@ -1,9 +1,6 @@
-import Axios from 'axios';
-
-import { PublicApiClient } from './public-api-client';
-
+import { PublicApiClient } from "./public-api-client";
 
 (async () => {
   const client = new PublicApiClient();
-  console.log(await client.getLatest())
-})()
+  console.log(await client.getLatest());
+})();

@@ -4,7 +4,7 @@ module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
-    // 'prettier/@typescript-eslint',
+    'prettier/@typescript-eslint',
   ],
   parserOptions: {
     project: './tsconfig.json',
@@ -12,6 +12,8 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     // Special ESLint rules or overrides go here.
   },
+  ignorePatterns: ['lib', '.eslintrc.js'],
 };

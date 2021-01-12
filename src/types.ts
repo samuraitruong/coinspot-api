@@ -1,5 +1,5 @@
 export interface HistoryRequest {
-  symbol: string,
+  symbol: string;
   from?: number;
   to?: number;
 }

@@ -1,4 +1,4 @@
-import { BaseClient } from './base-client';
+import { BaseClient } from "./base-client";
 export class ReadOnlyClient extends BaseClient {
   constructor(apiKey: string, apiSecret: string) {
     super(apiKey, apiSecret, "https://www.coinspot.com.au/api/ro");
@@ -9,23 +9,27 @@ export class ReadOnlyClient extends BaseClient {
   }
 
   async myBalance(cointype: string) {
-    return this.postRequest("my/balances/" + cointype, {cointype});
+    return this.postRequest("my/balances/" + cointype, { cointype });
   }
 
   async myDeposits(startdate: string, enddate: string) {
-    return this.postRequest("my/deposits", { enddate, startdate});
+    return this.postRequest("my/deposits", { enddate, startdate });
   }
 
   async myWithDrawals(startdate: string, enddate: string) {
-    return this.postRequest("my/withdrawals", { enddate, startdate});
+    return this.postRequest("my/withdrawals", { enddate, startdate });
   }
 
   async myTransactions(startdate: string, enddate: string) {
-    return this.postRequest("my/transactions", { enddate, startdate});
+    return this.postRequest("my/transactions", { enddate, startdate });
   }
 
-  async myTransaction(cointype:string, startdate: string, enddate: string) {
-    return this.postRequest("my/transaction/" + cointype, {cointype, enddate, startdate});
+  async myTransaction(cointype: string, startdate: string, enddate: string) {
+    return this.postRequest("my/transaction/" + cointype, {
+      cointype,
+      enddate,
+      startdate,
+    });
   }
 
   async myOpenTransactions() {
@@ -33,7 +37,9 @@ export class ReadOnlyClient extends BaseClient {
   }
 
   async myOpenTransaction(cointype: string) {
-    return this.postRequest("my/transactions/" + cointype + "/open", { cointype });
+    return this.postRequest("my/transactions/" + cointype + "/open", {
+      cointype,
+    });
   }
 
   async mySendReceive() {
@@ -47,7 +53,4 @@ export class ReadOnlyClient extends BaseClient {
   async myReferralPayments() {
     return this.postRequest("my/referralpayments");
   }
-
-
-
 }

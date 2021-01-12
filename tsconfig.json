@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "declaration": true,
     "target": "ES2015",                       
     "module": "commonjs",                     
     "outDir": "lib",                        
@@ -9,6 +10,7 @@
   },
   "exclude": [
     "node_modules",
-    "test"
+    "test",
+    "__snapshots__"
   ]
 }
