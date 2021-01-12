@@ -33,18 +33,18 @@ export class BaseClient {
     };
     const apiUrl = `${this.apiUrl}/${url}`;
     try {
-      const res = await axios.post(apiUrl, postdata, {
+      const res = await axios.post<T>(apiUrl, postdata, {
         headers,
       });
-      return res.data as T;
+      return res.data;
     } catch (err) {
       console.log(err);
       throw err;
     }
   }
 
-  async getRequest(apiPath: string) {
-    const res = await axios.get(`${this.apiUrl}/${apiPath}`);
+  async getRequest<T>(apiPath: string) {
+    const res = await axios.get<T>(`${this.apiUrl}/${apiPath}`);
     return res.data;
   }
 }

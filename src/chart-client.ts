@@ -8,6 +8,6 @@ export class ChartClient extends BaseClient {
 
   async getHistory(request: HistoryRequest) {
     const url = "history_basic?" + qs.stringify(request);
-    return this.getRequest(url);
+    return this.getRequest<ArrayLike<ArrayLike<number>>>(url);
   }
 }
