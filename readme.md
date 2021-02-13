@@ -17,3 +17,5 @@ const client = new CoinSpotClient(
   console.log(balance)
 
 ```
+## Documents
+Auto generated document can be found here - https://samuraitruong.github.io/coinspot-api/
