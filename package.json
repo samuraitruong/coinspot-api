@@ -7,7 +7,7 @@
     "lint": "eslint . --fix",
     "build": "rm -rf ./lib && tsc && npm run doc-gen",
     "dev": "ts-node ./src/index",
-    "test": "npm run jest",
+    "test": "jest",
     "doc-gen": "typedoc --out lib/docs src/",
     "prepublish": "npm run build"
   },
