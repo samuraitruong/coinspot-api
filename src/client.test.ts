@@ -7,6 +7,7 @@ const client = new CoinSpotClient(
 describe("Client tests", () => {
   it("MyBalance test", async () => {
     const bl = await client.myBalance();
+    console.log(bl)
     expect(bl).toEqual({ balance: expect.any(Object), status: "ok" });
   });
 
