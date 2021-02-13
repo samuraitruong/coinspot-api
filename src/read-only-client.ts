@@ -4,27 +4,31 @@ export class ReadOnlyClient extends BaseClient {
     super(apiKey, apiSecret, "https://www.coinspot.com.au/api/ro");
   }
 
-  async myBalances() {
+  public async myBalances() {
     return this.postRequest("my/balances");
   }
 
-  async myBalance(cointype: string) {
+  public async myBalance(cointype: string) {
     return this.postRequest("my/balances/" + cointype, { cointype });
   }
 
-  async myDeposits(startdate: string, enddate: string) {
+  public async myDeposits(startdate: string, enddate: string) {
     return this.postRequest("my/deposits", { enddate, startdate });
   }
 
-  async myWithDrawals(startdate: string, enddate: string) {
+  public async myWithDrawals(startdate: string, enddate: string) {
     return this.postRequest("my/withdrawals", { enddate, startdate });
   }
 
-  async myTransactions(startdate: string, enddate: string) {
+  public async myTransactions(startdate: string, enddate: string) {
     return this.postRequest("my/transactions", { enddate, startdate });
   }
 
-  async myTransaction(cointype: string, startdate: string, enddate: string) {
+  public async myTransaction(
+    cointype: string,
+    startdate: string,
+    enddate: string
+  ) {
     return this.postRequest("my/transaction/" + cointype, {
       cointype,
       enddate,
@@ -32,25 +36,25 @@ export class ReadOnlyClient extends BaseClient {
     });
   }
 
-  async myOpenTransactions() {
+  public async myOpenTransactions() {
     return this.postRequest("my/transactions/open");
   }
 
-  async myOpenTransaction(cointype: string) {
+  public async myOpenTransaction(cointype: string) {
     return this.postRequest("my/transactions/" + cointype + "/open", {
       cointype,
     });
   }
 
-  async mySendReceive() {
+  public async mySendReceive() {
     return this.postRequest("my/sendreceive");
   }
 
-  async myAffiliatePayments() {
+  public async myAffiliatePayments() {
     return this.postRequest("my/affiliatepayments");
   }
 
-  async myReferralPayments() {
+  public async myReferralPayments() {
     return this.postRequest("my/referralpayments");
   }
 }

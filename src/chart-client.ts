@@ -6,7 +6,7 @@ export class ChartClient extends BaseClient {
     super("", "", "https://www.coinspot.com.au/charts");
   }
 
-  async getHistory(request: HistoryRequest) {
+  public async getHistory(request: HistoryRequest) {
     const url = "history_basic?" + qs.stringify(request);
     return this.getRequest<ArrayLike<ArrayLike<number>>>(url);
   }
