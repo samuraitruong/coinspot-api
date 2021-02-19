@@ -29,7 +29,7 @@ export class ReadOnlyClient extends BaseClient {
     startdate: string,
     enddate: string
   ) {
-    return this.postRequest("my/transaction/" + cointype, {
+    return this.postRequest("my/transactions/" + cointype, {
       cointype,
       enddate,
       startdate,
