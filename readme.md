@@ -17,5 +17,21 @@ const client = new CoinSpotClient(
   console.log(balance)
 
 ```
+
+
+## Full API
+
+```js
+import {ReadOnlyClient} from '@samuraitruong/coinspot-api';
+const client = new ReadOnlyClient(
+    process.env.COINSPOT_KEY_READ_ONLY,
+    process.env.COINSPOT_SECRET_READ_ONLY,
+  );
+
+  const adaTransactions = await client.myTransactions('ada');
+  console.log(adaTransactions)
+
+```
+
 ## Documents
 Auto generated document can be found here - https://samuraitruong.github.io/coinspot-api/
