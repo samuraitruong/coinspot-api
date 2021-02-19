@@ -6,7 +6,7 @@ export class BaseClient {
     private apiKey: string,
     private apiSecret: string,
     public apiUrl: string
-  ) {}
+  ) { }
 
   calculateSign<T>(data: T) {
     const nonce = new Date().getTime();
@@ -24,7 +24,10 @@ export class BaseClient {
     };
   }
 
-  async postRequest<T>(url: string, data: { [key: string]: any } = {}) {
+  async postRequest<T>(
+    url: string,
+    data: { [key: string]: any } = {}
+  ): Promise<T> {
     const { sign, postdata } = this.calculateSign(data);
     const headers = {
       key: this.apiKey,
@@ -38,6 +41,10 @@ export class BaseClient {
       });
       return res.data;
     } catch (err) {
+      if (err.isAxiosError && err.response.data.message === "invalid nonce") {
+        return await this.postRequest<T>(url, data);
+      }
+
       console.log(err);
       throw err;
     }
