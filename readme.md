@@ -1,4 +1,4 @@
-# Coinspot API for nodejs
+# NodeJS  Coinspot.com.au API 
 - public api
 - read only api
 - full api
@@ -34,4 +34,6 @@ const client = new ReadOnlyClient(
 ```
 
 ## Documents
-Auto generated document can be found here - https://samuraitruong.github.io/coinspot-api/
+Auto generated document can be found here - 
+
+(https://samuraitruong.github.io/coinspot-api/)
