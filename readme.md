@@ -37,3 +37,5 @@ const client = new ReadOnlyClient(
 Auto generated document can be found here - 
 
 (https://samuraitruong.github.io/coinspot-api/)
+
+## WIP
